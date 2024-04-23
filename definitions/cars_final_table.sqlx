@@ -4,9 +4,12 @@ config {
     dependencies: ["cars_view"]
 }
 
-  -- Use the ref() function to manage dependencies.
+  -- Use the ref() function to manage dependencies
   -- Learn more about ref() and other built in functions here: https://cloud.google.com/dataform/docs/dataform-core
 SELECT
-  test
+  id,
+  color,
+  CAST(JSON_VALUE(datos.specs, '$.price') AS NUMERIC) AS price,
+  CAST(datos.specs.parts AS json) AS parts
 FROM
   ${ref("cars_view")}
