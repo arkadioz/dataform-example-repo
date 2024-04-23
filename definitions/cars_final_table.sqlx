@@ -1,0 +1,12 @@
+config {
+    type: "incremental",
+    name: "cars_final_table",
+    dependencies: ["cars_view"]
+}
+
+  -- Use the ref() function to manage dependencies.
+  -- Learn more about ref() and other built in functions here: https://cloud.google.com/dataform/docs/dataform-core
+SELECT
+  test
+FROM
+  ${ref("cars_view")}

@@ -1,0 +1,7 @@
+{
+  "defaultSchema": "tutorial_cars",
+  "assertionSchema": "dataform_assertions",
+  "warehouse": "bigquery",
+  "defaultDatabase": "ark-learn-project",
+  "defaultLocation": "US"
+}
