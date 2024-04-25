@@ -12,7 +12,8 @@ config {
 SELECT
   cars.id,
   cars.color,
-  cars.datos
+  cars.datos,
+  cars.created_at
 FROM
   `ark-learn-project.tutorial_cars.cars` AS cars
 LEFT JOIN
@@ -20,4 +21,6 @@ LEFT JOIN
 ON
   cars.id = cars_final_table.id
 WHERE
-  cars_final_table.id IS NULL
+  cars_final_table.id IS NULL AND cars.created_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)
+  AND cars.created_at < CURRENT_DATE()
+

@@ -10,6 +10,7 @@ SELECT
   id,
   color,
   CAST(JSON_VALUE(datos.specs, '$.price') AS NUMERIC) AS price,
-  CAST(datos.specs.parts AS json) AS parts
+  CAST(datos.specs.parts AS json) AS parts,
+  created_at AS creation_date_time
 FROM
   ${ref("cars_view")}
